@@ -7,18 +7,20 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="container"></div>
-    <form class="form">
-      <label for="to-do">To Do</label>
-      <input
-        type="text"
-        name="to-do"
-        id="to-do"
-        placeholder="Your Task"
-        required
-      />
-    </form>
-    <div class="btn"><a>Add an item</a></div>
-    <div class="btn"><a>Cancel</a></div>
+    <div class="container">
+      <form class="form">
+        <label for="to-do" id="todo-form">To Do</label>
+        <input
+          type="text"
+          name="todo"
+          id="todo"
+          placeholder="Your Task"
+          required
+        />
+      </form>
+      <button class="btn btn-submit" type="submit">Add an item</button>
+      <button class="btn btn-reset" type="reset">Cancel</button>
+    </div>
+    <script src="app.js"></script>
   </body>
 </html>
