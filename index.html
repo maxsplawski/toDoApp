@@ -9,18 +9,20 @@
   <body>
     <div class="container">
       <form class="form">
-        <label for="to-do" id="todo-form">To Do</label>
+        <label class="form__label" for="to-do">To Do</label>
         <input
+          class="form__input"
           type="text"
           name="todo"
-          id="todo"
           placeholder="Your Task"
           required
         />
+
+        <button class="btn btn-submit" type="submit">Add an item</button>
+        <button class="btn btn-reset" type="reset">Cancel</button>
       </form>
-      <button class="btn btn-submit" type="submit">Add an item</button>
-      <button class="btn btn-reset" type="reset">Cancel</button>
     </div>
+    <div class="todo__list"></div>
     <script src="app.js"></script>
   </body>
 </html>
