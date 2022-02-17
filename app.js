@@ -1,27 +1,38 @@
 const form = document.querySelector(".form");
-const toDoInput = document.querySelector(".form__input");
-const toDoBtn = document.querySelector(".btn-submit");
-const toDoList = document.querySelector(".todo__list");
-
-let toDosArr = [];
+const taskInput = document.querySelector(".form__input");
+const taskList = document.querySelector(".task__list");
+let taskArr = [];
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const data = new FormData(form);
-  data.forEach((toDo) => {
-    toDosArr.push(toDo);
-  });
-  console.log(toDosArr);
+  const task = taskInput.value;
+  taskArr.push(task);
+  console.log(taskArr);
+
+  taskEl = document.createElement("div");
+  taskEl.textContent = task;
+  taskList.appendChild(taskEl);
 });
 
-const renderToDos = (toDos = ["fesfs"]) => {
-  toDoList.innerHTML = "";
+// let toDosArr = [];
 
-  toDos.forEach((toDo) => {
-    const html = `<div>${toDo}</div>`;
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const data = new FormData(form);
+//   data.forEach((toDo) => {
+//     toDosArr.push(toDo);
+//   });
+//   console.log(toDosArr);
+// });
 
-    toDoList.insertAdjacentHTML("afterbegin", html);
-  });
-};
+// const renderToDos = (toDos = ["fesfs"]) => {
+//   toDoList.innerHTML = "";
 
-renderToDos();
+//   toDos.forEach((toDo) => {
+//     const html = `<div>${toDo}</div>`;
+
+//     toDoList.insertAdjacentHTML("afterbegin", html);
+//   });
+// };
+
+// renderToDos();
