@@ -1,5 +1,12 @@
 .task {
-  background-color: red;
-  width: 200px;
-  height: 200px;
+  display: flex;
+  gap: 2rem;
+  background-color: rgb(179, 179, 179);
+}
+
+.blank {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
 }
