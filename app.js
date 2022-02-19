@@ -3,16 +3,34 @@ const taskInput = document.querySelector(".form__input");
 const taskList = document.querySelector(".task__list");
 let taskArr = [];
 
-form.addEventListener("submit", (e) => {
+const renderTask = (e) => {
   e.preventDefault();
   const task = taskInput.value;
-  taskArr.push(task);
-  console.log(taskArr);
+  const convertedTask = task[0].toUpperCase() + task.slice(1);
+  taskArr.push(convertedTask);
+  console.log(convertedTask);
+
+  taskElContainer = document.createElement("div");
+  taskElContainer.classList.add("task");
 
   taskEl = document.createElement("div");
-  taskEl.textContent = task;
-  taskList.appendChild(taskEl);
-});
+  taskEl.classList.add("task__content");
+  taskEl.textContent = convertedTask;
+
+  taskBtnDelete = document.createElement("button");
+  taskBtnDelete.classList = "task__btn-delete";
+  taskBtnDelete.textContent = "Delete";
+
+  taskList.appendChild(taskElContainer);
+
+  taskElContainer.appendChild(taskEl);
+
+  taskElContainer.appendChild(taskBtnDelete);
+
+  taskInput.value = "";
+};
+
+form.addEventListener("submit", renderTask);
 
 // let toDosArr = [];
 
