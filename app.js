@@ -1,7 +1,5 @@
 const form = document.querySelector(".form");
 const taskInput = document.querySelector(".form__input-task");
-const dateInput = document.querySelector("form__input-date");
-const cancelBtn = document.querySelector(".btn-reset");
 const taskList = document.querySelector(".task__list");
 let taskArr = [];
 
@@ -12,7 +10,9 @@ const renderTask = (e) => {
 
   const time = new Date();
   const year = time.getFullYear();
-  const month = time.getMonth();
+  const month = time.toLocaleString("en-GB", {
+    month: "long",
+  });
   const day = time.getDate();
 
   taskArr.push(convertedTask);
@@ -24,20 +24,9 @@ const renderTask = (e) => {
   taskContentEl = document.createElement("div");
   taskContentEl.classList.add("task__content");
 
-  taskDateElContainer = document.createElement("div");
-  taskDateElContainer.classList.add("task__date-container");
-
-  taksDateYearEl = document.createElement("p");
-  taksDateYearEl.classList.add("task_date-year");
-  taksDateYearEl.textContent = year;
-
-  taksDateMonthEl = document.createElement("p");
-  taksDateMonthEl.classList.add("task_date-month");
-  taksDateMonthEl.textContent = month;
-
-  taksDateDayEl = document.createElement("p");
-  taksDateDayEl.classList.add("task_date-day");
-  taksDateDayEl.textContent = day;
+  taskDateEl = document.createElement("div");
+  taskDateEl.classList.add("task__date");
+  taskDateEl.textContent = `${day} ${month} ${year}`;
 
   taskEl = document.createElement("input");
   taskEl.classList.add("task__content-el");
@@ -59,11 +48,7 @@ const renderTask = (e) => {
 
   taskList.appendChild(taskContainerEl);
 
-  taskContainerEl.appendChild(taskDateElContainer);
-  taskDateElContainer.appendChild(taksDateYearEl);
-  taskDateElContainer.appendChild(taksMonthYearEl);
-  taskDateElContainer.appendChild(taksDayYearEl);
-
+  taskContainerEl.appendChild(taskDateEl);
   taskContainerEl.appendChild(taskContentEl);
   taskContentEl.appendChild(taskEl);
 
