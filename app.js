@@ -40,10 +40,12 @@ const renderTask = (e) => {
 
   taskBtnEdit = document.createElement("button");
   taskBtnEdit.classList.add("task__btn-edit");
+  taskBtnEdit.classList.add("btn");
   taskBtnEdit.textContent = "Edit";
 
   taskBtnDelete = document.createElement("button");
-  taskBtnDelete.classList = "task__btn-delete";
+  taskBtnDelete.classList.add("task__btn-delete");
+  taskBtnDelete.classList.add("btn");
   taskBtnDelete.textContent = "Delete";
 
   taskList.appendChild(taskContainerEl);

@@ -24,7 +24,8 @@ body {
 
 .btn {
   border: none;
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 1rem;
+  min-width: 6.4rem;
   border-radius: 50px;
   background-color: #f1f3f5;
 }
@@ -41,29 +42,26 @@ body {
   background-color: #343a40;
   padding: 3.6rem 3.6rem 7.2rem 3.6rem;
   border-radius: 9px;
-  min-height: 40rem;
+  min-height: 45rem;
+  min-width: 55rem;
 
   .form {
     display: flex;
     gap: 1.2rem;
-    width: 40rem;
-
-    .form__input-task {
-      width: 66%;
-    }
-
-    .btn-submit {
-      width: 33%;
-    }
-
-    .btn-reset {
-      width: 33%;
-    }
+    justify-content: space-around;
+    margin-bottom: 2rem;
   }
 
-  .task {
-    display: flex;
-    gap: 2rem;
-    background-color: rgb(179, 179, 179);
+  .task__list {
+    .task {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 1.2rem 2.4rem;
+      gap: 2rem;
+      background-color: #2d3338;
+      border-radius: 50px;
+      margin-bottom: 1.2rem;
+    }
   }
 }
