@@ -1,7 +1,32 @@
-.task {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
   display: flex;
-  gap: 2rem;
-  background-color: rgb(179, 179, 179);
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  background: linear-gradient(#343a40, #212529);
+}
+
+// HELPERS
+
+.btn {
+  border: none;
+  padding: 1rem 0.5rem;
+  border-radius: 50px;
+  background-color: #f1f3f5;
 }
 
 .blank {
@@ -9,4 +34,36 @@
   border: none;
   outline: none;
   background: none;
+}
+
+.container {
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.06);
+  background-color: #343a40;
+  padding: 3.6rem 3.6rem 7.2rem 3.6rem;
+  border-radius: 9px;
+  min-height: 40rem;
+
+  .form {
+    display: flex;
+    gap: 1.2rem;
+    width: 40rem;
+
+    .form__input-task {
+      width: 66%;
+    }
+
+    .btn-submit {
+      width: 33%;
+    }
+
+    .btn-reset {
+      width: 33%;
+    }
+  }
+
+  .task {
+    display: flex;
+    gap: 2rem;
+    background-color: rgb(179, 179, 179);
+  }
 }

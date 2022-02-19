@@ -1,9 +1,38 @@
-.task {
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 2rem;
-  background-color: #b3b3b3;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  background: -webkit-gradient(linear, left top, left bottom, from(#343a40), to(#212529));
+  background: linear-gradient(#343a40, #212529);
+}
+
+.btn {
+  border: none;
+  padding: 1rem 0.5rem;
+  border-radius: 50px;
+  background-color: #f1f3f5;
 }
 
 .blank {
@@ -13,5 +42,42 @@
   border: none;
   outline: none;
   background: none;
+}
+
+.container {
+  -webkit-box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.06);
+          box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.06);
+  background-color: #343a40;
+  padding: 3.6rem 3.6rem 7.2rem 3.6rem;
+  border-radius: 9px;
+  min-height: 40rem;
+}
+
+.container .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.2rem;
+  width: 40rem;
+}
+
+.container .form .form__input-task {
+  width: 66%;
+}
+
+.container .form .btn-submit {
+  width: 33%;
+}
+
+.container .form .btn-reset {
+  width: 33%;
+}
+
+.container .task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  background-color: #b3b3b3;
 }
 /*# sourceMappingURL=style.css.map */
