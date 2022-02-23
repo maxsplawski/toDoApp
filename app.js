@@ -48,8 +48,6 @@ const renderTask = (e) => {
   taskBtnDelete.classList.add("btn");
   taskBtnDelete.textContent = "Delete";
 
-  taskList.appendChild(taskContainerEl);
-
   taskContainerEl.appendChild(taskDateEl);
   taskContainerEl.appendChild(taskContentEl);
   taskContentEl.appendChild(taskEl);
@@ -57,6 +55,8 @@ const renderTask = (e) => {
   taskContainerEl.appendChild(taskBtnsContainer);
   taskBtnsContainer.appendChild(taskBtnEdit);
   taskBtnsContainer.appendChild(taskBtnDelete);
+
+  taskList.appendChild(taskContainerEl);
 
   taskInput.value = "";
 
@@ -71,8 +71,10 @@ const renderTask = (e) => {
     }
   });
 
-  taskBtnDelete.addEventListener("click", () => {
-    taskList.removeChild(taskContainerEl);
+  taskList.addEventListener("click", (e) => {
+    const target = e.target;
+    const task = target.closest(".task");
+    if (target.classList[0] === "task__btn-delete") task.remove();
   });
 };
 
