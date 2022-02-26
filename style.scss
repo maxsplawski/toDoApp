@@ -41,13 +41,27 @@ body {
   opacity: 0;
 }
 
-.done-start {
+.done {
   background-color: #24282c !important;
   transform: scale(1.001);
 }
 
-.done-end {
-  opacity: 0;
+// ANIMATIONS
+
+@keyframes doneAnimation {
+  0% {
+    background-color: #2d3338;
+    transform: scale(1);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    background-color: #62bd5a;
+    transform: scale(1.01);
+    opacity: 0;
+  }
 }
 
 .container {
@@ -56,35 +70,76 @@ body {
   padding: 3.6rem 3.6rem 7.2rem 3.6rem;
   border-radius: 9px;
   min-height: 45rem;
-  min-width: 55rem;
+  min-width: 70rem;
 
   .form {
     display: flex;
-    gap: 1.2rem;
+    gap: 2rem;
     justify-content: space-around;
+    align-items: center;
     margin-bottom: 2rem;
+
+    .inputs-container {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .btns-container {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .form__input-task {
+      padding: 1rem;
+      border-radius: 9px;
+      background-color: #3d444b;
+    }
+
+    .form__input-category {
+      padding: 1rem;
+      border-radius: 9px;
+      background-color: #3d444b;
+    }
   }
 
   .task__list {
     .task {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
       padding: 1.2rem 2.4rem;
-      gap: 2rem;
+      gap: 0.6rem;
       background-color: #2d3338;
       border-radius: 50px;
       margin-bottom: 1.2rem;
       transition: 0.6s opacity, 1s transform, background-color 1s;
 
-      .task__content-el {
-        border-radius: 9px;
-        padding: 0.5rem;
-      }
+      .task__container--top {
+        display: flex;
+        align-items: center;
+        align-self: flex-start;
 
-      .task__content-el:hover,
-      .task__content-el:focus {
-        background-color: #40474d;
+        .task__date {
+          font-size: 1.6rem;
+          margin-right: 1.2rem;
+        }
+
+        .task__content-el {
+          font-size: 1.8rem;
+          border-radius: 9px;
+          padding: 0.5rem;
+          margin-right: 1.2rem;
+        }
+
+        .task__content-el:hover,
+        .task__content-el:focus {
+          background-color: #40474d;
+        }
+
+        .task__categories {
+          font-size: 1.6rem;
+          word-wrap: normal;
+        }
       }
     }
   }

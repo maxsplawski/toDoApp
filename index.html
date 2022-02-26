@@ -10,21 +10,24 @@
   <body>
     <div class="container">
       <form class="form">
-        <input
-          class="form__input-task blank"
-          type="text"
-          name="task"
-          placeholder="Your Task"
-          autocomplete="off"
-          required
-        />
-        <input
-          class="form__input-category blank"
-          type="text"
-          name="category"
-          placeholder="Categories"
-          required
-        />
+        <div class="inputs-container">
+          <input
+            class="form__input-task blank"
+            type="text"
+            name="task"
+            placeholder="Your Task"
+            autocomplete="off"
+            required
+          />
+          <input
+            class="form__input-category blank"
+            type="text"
+            name="category"
+            placeholder="Categories"
+            maxlength="30"
+            required
+          />
+        </div>
 
         <div class="btns-container">
           <button class="btn btn-submit" type="submit">Add an item</button>

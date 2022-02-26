@@ -25,14 +25,18 @@ const renderTask = (e) => {
   const day = time.getDate();
 
   const html = `
-    <div class="task__date">${day} ${month} ${year}</div>
-    <div class="task__content">
-      <input class="task__content-el blank" type="text" readonly="readonly" value="${convertedTask}">
+    <div class="task__container--top">
+      <div class="task__date">${day} ${month} ${year}</div>
+      <div class="task__content">
+        <input class="task__content-el blank" type="text" readonly="readonly" value="${convertedTask}">
+      </div>
+      <div class="task__categories">${convertedCategories}</div>
     </div>
-    <div>${convertedCategories}</div>
-    <div class="task__btns-container">
-      <button class="task__btn-done btn">Done</button>
-      <button class="task__btn-delete btn">Delete</button>
+    <div class="task__container--bottom"
+      <div class="task__btns-container">
+        <button class="task__btn-done btn">Done</button>
+        <button class="task__btn-delete btn">Delete</button>
+      </div>
     </div>
   `;
 
@@ -54,9 +58,8 @@ const renderTask = (e) => {
     const input = target.closest(".task").querySelector("input");
 
     if (target.classList[0] === "task__btn-done") {
-      task.classList.add("done-start");
-      task.addEventListener("transitionend", () => {
-        task.classList.add("done-end");
+      task.style.animation = "doneAnimation 1.3s";
+      task.addEventListener("animationend", () => {
         task.remove();
       });
     }
