@@ -67,6 +67,16 @@ body {
       border-radius: 50px;
       margin-bottom: 1.2rem;
       transition: 0.3s;
+
+      .task__content-el {
+        border-radius: 9px;
+        padding: 0.5rem;
+      }
+
+      .task__content-el:hover,
+      .task__content-el:focus {
+        background-color: #40474d;
+      }
     }
   }
 }

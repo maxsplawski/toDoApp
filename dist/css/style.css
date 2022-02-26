@@ -88,4 +88,14 @@ body {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
+
+.container .task__list .task .task__content-el {
+  border-radius: 9px;
+  padding: 0.5rem;
+}
+
+.container .task__list .task .task__content-el:hover,
+.container .task__list .task .task__content-el:focus {
+  background-color: #40474d;
+}
 /*# sourceMappingURL=style.css.map */
