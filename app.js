@@ -15,66 +15,59 @@ const renderTask = (e) => {
   });
   const day = time.getDate();
 
+  const html = `
+    <div class="task__date">${day} ${month} ${year}</div>
+    <div class="task__content">
+      <input class="task__content-el blank" type="text" readonly="readonly" value="${convertedTask}">
+    </div>
+    <div class="task__btns-container">
+      <button class="task__btn-edit btn">Edit</button>
+      <button class="task__btn-delete btn">Delete</button>
+    </div>
+  `;
+
   taskArr.push(convertedTask);
   console.log(convertedTask);
 
   taskContainerEl = document.createElement("div");
   taskContainerEl.classList.add("task");
 
-  taskContentEl = document.createElement("div");
-  taskContentEl.classList.add("task__content");
-
-  taskDateEl = document.createElement("div");
-  taskDateEl.classList.add("task__date");
-  taskDateEl.textContent = `${day} ${month} ${year}`;
-
-  taskEl = document.createElement("input");
-  taskEl.classList.add("task__content-el");
-  taskEl.classList.add("blank");
-  taskEl.type = "text";
-  taskEl.value = convertedTask;
-  taskEl.setAttribute("readonly", "readonly");
-
-  taskBtnsContainer = document.createElement("div");
-  taskBtnsContainer.classList.add("task__btns-container");
-
-  taskBtnEdit = document.createElement("button");
-  taskBtnEdit.classList.add("task__btn-edit");
-  taskBtnEdit.classList.add("btn");
-  taskBtnEdit.textContent = "Edit";
-
-  taskBtnDelete = document.createElement("button");
-  taskBtnDelete.classList.add("task__btn-delete");
-  taskBtnDelete.classList.add("btn");
-  taskBtnDelete.textContent = "Delete";
-
-  taskContainerEl.appendChild(taskDateEl);
-  taskContainerEl.appendChild(taskContentEl);
-  taskContentEl.appendChild(taskEl);
-
-  taskContainerEl.appendChild(taskBtnsContainer);
-  taskBtnsContainer.appendChild(taskBtnEdit);
-  taskBtnsContainer.appendChild(taskBtnDelete);
+  taskContainerEl.insertAdjacentHTML("afterbegin", html);
 
   taskList.appendChild(taskContainerEl);
 
   taskInput.value = "";
 
-  taskBtnEdit.addEventListener("click", () => {
-    if (taskBtnEdit.textContent === "Edit") {
-      taskBtnEdit.textContent = "Save";
-      taskEl.removeAttribute("readonly");
-      taskEl.focus();
-    } else {
-      taskBtnEdit.textContent = "Edit";
-      taskEl.setAttribute("readonly", "readonly");
-    }
-  });
-
   taskList.addEventListener("click", (e) => {
     const target = e.target;
     const task = target.closest(".task");
-    if (target.classList[0] === "task__btn-delete") task.remove();
+
+    if (target.classList[0] === "task__btn-delete") {
+      task.classList.add("delete");
+      task.addEventListener("transitionend", () => {
+        task.remove();
+      });
+    }
+
+    // const editBtn = target.closest(".task").querySelector(".task__btn-edit");
+    // const input = target.closest(".task").querySelector("input");
+    // console.log(target);
+    // console.log(editBtn);
+    // if (
+    //   target.classList[0] === "task__btn-edit" &&
+    //   editBtn.textContent === "Edit"
+    // ) {
+    //   target.textContent = "Save";
+    //   input.removeAttribute("readonly");
+    //   input.focus();
+    // }
+    // if (
+    //   target.classList[0] === "task__btn-edit" &&
+    //   editBtn.textContent === "Save"
+    // ) {
+    //   target.textContent = "Edit";
+    //   input.setAttribute("readonly", "readonly");
+    // }
   });
 };
 

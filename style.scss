@@ -37,6 +37,10 @@ body {
   background: none;
 }
 
+.delete {
+  opacity: 0;
+}
+
 .container {
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.06);
   background-color: #343a40;
@@ -62,6 +66,7 @@ body {
       background-color: #2d3338;
       border-radius: 50px;
       margin-bottom: 1.2rem;
+      transition: 0.3s;
     }
   }
 }
