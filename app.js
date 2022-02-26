@@ -41,11 +41,20 @@ const renderTask = (e) => {
   taskList.addEventListener("click", (e) => {
     const target = e.target;
     const task = target.closest(".task");
+    const input = target.closest(".task").querySelector("input");
 
     if (target.classList[0] === "task__btn-delete") {
       task.classList.add("delete");
       task.addEventListener("transitionend", () => {
         task.remove();
+      });
+    }
+
+    if (target.classList[0] === "task__content-el") {
+      input.removeAttribute("readonly");
+
+      input.addEventListener("keydown", (e) => {
+        if (e.code === "Enter") input.setAttribute("readonly", "readonly");
       });
     }
 
@@ -55,16 +64,12 @@ const renderTask = (e) => {
     // console.log(editBtn);
     // if (
     //   target.classList[0] === "task__btn-edit" &&
-    //   editBtn.textContent === "Edit"
+    //   target.textContent === "Edit"
     // ) {
     //   target.textContent = "Save";
     //   input.removeAttribute("readonly");
     //   input.focus();
-    // }
-    // if (
-    //   target.classList[0] === "task__btn-edit" &&
-    //   editBtn.textContent === "Save"
-    // ) {
+    // } else {
     //   target.textContent = "Edit";
     //   input.setAttribute("readonly", "readonly");
     // }
