@@ -2,6 +2,7 @@ const form = document.querySelector(".form");
 const taskInput = document.querySelector(".form__input-task");
 const categoryInput = document.querySelector(".form__input-category");
 const taskList = document.querySelector(".task__list");
+const description = document.querySelector(".description");
 let taskArr = [];
 
 const renderTask = (e) => {
@@ -30,12 +31,12 @@ const renderTask = (e) => {
     </div>
     <div>${convertedCategories}</div>
     <div class="task__btns-container">
+      <button class="task__btn-done btn">Done</button>
       <button class="task__btn-delete btn">Delete</button>
     </div>
   `;
 
   taskArr.push(convertedTask);
-  console.log(convertedTask);
 
   taskContainerEl = document.createElement("div");
   taskContainerEl.classList.add("task");
@@ -51,6 +52,14 @@ const renderTask = (e) => {
     const target = e.target;
     const task = target.closest(".task");
     const input = target.closest(".task").querySelector("input");
+
+    if (target.classList[0] === "task__btn-done") {
+      task.classList.add("done-start");
+      task.addEventListener("transitionend", () => {
+        task.classList.add("done-end");
+        task.remove();
+      });
+    }
 
     if (target.classList[0] === "task__btn-delete") {
       task.classList.add("delete");
@@ -70,6 +79,10 @@ const renderTask = (e) => {
       });
     }
   });
+
+  taskArr.length === 1
+    ? (description.textContent = `You have 1 pending task.`)
+    : (description.textContent = `You have ${taskArr.length} pending tasks.`);
 };
 
 form.addEventListener("submit", renderTask);
