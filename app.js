@@ -3,6 +3,7 @@ const taskInput = document.querySelector(".form__input-task");
 const categoryInput = document.querySelector(".form__input-category");
 const taskList = document.querySelector(".task__list");
 const description = document.querySelector(".description");
+const filter = document.querySelector(".filter-tasks");
 let taskArr = [];
 
 const renderTask = (e) => {
@@ -30,7 +31,7 @@ const renderTask = (e) => {
       <div class="task__content">
         <input class="task__content-el blank" type="text" readonly="readonly" value="${convertedTask}">
       </div>
-      <div class="task__categories">${convertedCategories}</div>
+      <input class="task__categories blank" type="text" readonly="readonly" value="${convertedCategories}"></input>
     </div>
     <div class="task__container--bottom"
       <div class="task__btns-container">
@@ -44,6 +45,14 @@ const renderTask = (e) => {
 
   taskContainerEl = document.createElement("div");
   taskContainerEl.classList.add("task");
+
+  convertedCategories.forEach((category) => {
+    filterOption = document.createElement("option");
+    filterOption.textContent = category;
+    filterOption.value = category;
+
+    filter.appendChild(filterOption);
+  });
 
   taskContainerEl.insertAdjacentHTML("afterbegin", html);
 

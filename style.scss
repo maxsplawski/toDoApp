@@ -70,7 +70,7 @@ body {
   padding: 3.6rem 3.6rem 7.2rem 3.6rem;
   border-radius: 9px;
   min-height: 45rem;
-  min-width: 70rem;
+  min-width: 50rem;
 
   .form {
     display: flex;
@@ -113,6 +113,7 @@ body {
       border-radius: 50px;
       margin-bottom: 1.2rem;
       transition: 0.6s opacity, 1s transform, background-color 1s;
+      width: auto;
 
       .task__container--top {
         display: flex;
@@ -137,8 +138,8 @@ body {
         }
 
         .task__categories {
+          color: #555;
           font-size: 1.6rem;
-          word-wrap: normal;
         }
       }
     }
