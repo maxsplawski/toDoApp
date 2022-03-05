@@ -9,38 +9,40 @@
   </head>
   <body>
     <div class="container">
-      <form class="form">
-        <div class="inputs-container">
-          <input
-            class="form__input-task blank"
-            type="text"
-            name="task"
-            placeholder="Your Task"
-            autocomplete="off"
-            required
-          />
-          <input
-            class="form__input-category blank"
-            type="text"
-            name="category"
-            placeholder="Categories"
-            maxlength="30"
-            required
-          />
-        </div>
+      <div class="controls">
+        <form class="form">
+          <div class="inputs-container">
+            <input
+              class="form__input-task blank"
+              type="text"
+              name="task"
+              placeholder="Your Task"
+              autocomplete="off"
+              required
+            />
+            <input
+              class="form__input-category blank"
+              type="text"
+              name="category"
+              placeholder="Categories"
+              maxlength="30"
+              required
+            />
+          </div>
 
-        <div class="btns-container">
-          <button class="btn btn-submit" type="submit">Add an item</button>
-          <button class="btn btn-reset" type="reset">Cancel</button>
-        </div>
+          <div class="btns-container">
+            <button class="btn btn-submit" type="submit">Add an item</button>
+            <button class="btn btn-reset" type="reset">Cancel</button>
+          </div>
+        </form>
         <div class="filter-container">
-          <select name="filter-tasks" class="filter-tasks">
+          <select name="filter-tasks" class="form__filter-tasks">
             <option value="all">All</option>
             <option value="completed">Completed</option>
             <option value="uncompleted">Uncompleted</option>
           </select>
         </div>
-      </form>
+      </div>
       <div class="task__list"></div>
 
       <div class="description">You have no pending tasks</div>

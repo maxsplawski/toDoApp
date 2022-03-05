@@ -3,7 +3,7 @@ const taskInput = document.querySelector(".form__input-task");
 const categoryInput = document.querySelector(".form__input-category");
 const taskList = document.querySelector(".task__list");
 const description = document.querySelector(".description");
-const filter = document.querySelector(".filter-tasks");
+const filter = document.querySelector(".form__filter-tasks");
 let taskArr = [];
 
 const renderTask = (e) => {
@@ -90,6 +90,11 @@ const renderTask = (e) => {
         }
       });
     }
+  });
+
+  filter.addEventListener("click", (e) => {
+    tasks = taskList.childNodes;
+    console.log(tasks);
   });
 
   taskArr.length === 1

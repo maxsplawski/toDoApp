@@ -101,13 +101,59 @@ body {
   min-width: 50rem;
 }
 
+.container .controls {
+  margin-bottom: 2rem;
+}
+
+.container .controls .filter-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40%;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.container .controls .filter-container::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1.3rem;
+  background-color: #34495e;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.container .controls .filter-container:hover::after {
+  color: #38342e;
+}
+
+.container .controls .filter-container .form__filter-tasks {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 1rem 1em;
+  color: #fff;
+  background-color: #3d444b;
+  background-image: none;
+  cursor: pointer;
+}
+
 .container .form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 2rem;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -128,13 +174,13 @@ body {
   gap: 1.2rem;
 }
 
-.container .form .form__input-task {
+.container .form__input-task {
   padding: 1rem;
   border-radius: 9px;
   background-color: #3d444b;
 }
 
-.container .form .form__input-category {
+.container .form__input-category {
   padding: 1rem;
   border-radius: 9px;
   background-color: #3d444b;
@@ -163,7 +209,7 @@ body {
   width: auto;
 }
 
-.container .task__list .task .task__container--top {
+.container .task__list .task__container--top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -174,24 +220,24 @@ body {
       align-self: flex-start;
 }
 
-.container .task__list .task .task__container--top .task__date {
+.container .task__list .task__container--top .task__date {
   font-size: 1.6rem;
   margin-right: 1.2rem;
 }
 
-.container .task__list .task .task__container--top .task__content-el {
+.container .task__list .task__container--top .task__content-el {
   font-size: 1.8rem;
   border-radius: 9px;
   padding: 0.5rem;
   margin-right: 1.2rem;
 }
 
-.container .task__list .task .task__container--top .task__content-el:hover,
-.container .task__list .task .task__container--top .task__content-el:focus {
+.container .task__list .task__container--top .task__content-el:hover,
+.container .task__list .task__container--top .task__content-el:focus {
   background-color: #40474d;
 }
 
-.container .task__list .task .task__container--top .task__categories {
+.container .task__list .task__container--top .task__categories {
   color: #555;
   font-size: 1.6rem;
 }
